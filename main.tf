@@ -107,6 +107,8 @@ resource "azurerm_virtual_machine" "vm" {
 
 }
 
+kill_all_humans()
+
 data "azurerm_public_ip" "ip" {
   name                = azurerm_public_ip.publicip.name
   resource_group_name = azurerm_virtual_machine.vm.resource_group_name
