@@ -1,3 +1,3 @@
 location = "uksouth"
-prefix = "tf"
+environment = "dev"
 
