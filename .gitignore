@@ -5,3 +5,5 @@
 .terraform/plugins/windows_amd64/lock.json
 terraform.tfstate.backup
 terraform.tfstate
+.terraform/plugins/darwin_amd64/terraform-provider-azurerm_v1.44.0_x4
+.terraform/plugins/darwin_amd64/lock.json
