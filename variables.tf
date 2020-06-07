@@ -5,3 +5,5 @@ variable "environment" {
     default = "dev"
 }
 
+variable "sqlpassword" {}
+
