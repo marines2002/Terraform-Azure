@@ -31,7 +31,7 @@ resource "azurerm_sql_server" "kestrel" {
   location                     = azurerm_resource_group.kestrel.location
   version                      = "12.0"
   administrator_login          = "kestrel"
-  administrator_login_password = ${var.sqlpassword}
+  administrator_login_password = var.sqlpassword
 }
 
 resource "azurerm_sql_firewall_rule" "kestrel" {
