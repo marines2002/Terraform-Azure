@@ -23,6 +23,10 @@ resource "azurerm_app_service" "kestrel" {
     location            = azurerm_resource_group.kestrel.location
     resource_group_name = azurerm_resource_group.kestrel.name
     app_service_plan_id = azurerm_app_service_plan.kestrel.id
+
+    site_config {
+         dotnet_framework_version = "v4.0"    
+    }
 }
 
 resource "azurerm_sql_server" "kestrel" {
