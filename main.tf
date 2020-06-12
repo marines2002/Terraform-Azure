@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "kestrel" {
 }
 
 resource "azurerm_storage_account" "kestrel" {
-  name                     = "${var.environment}-hca-kestrel-sa"
+  name                     = "${var.environment}hcakestrelsa"
   resource_group_name      = azurerm_resource_group.kestrel.name
   location                 = azurerm_resource_group.kestrel.location
   account_tier             = "Standard"
