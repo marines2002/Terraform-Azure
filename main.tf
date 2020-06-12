@@ -8,6 +8,14 @@ resource "azurerm_resource_group" "kestrel" {
   location = var.location
 }
 
+resource "azurerm_storage_account" "kestrel" {
+  name                     = "${var.environment}-hca-kestrel-sa"
+  resource_group_name      = azurerm_resource_group.kestrel.name
+  location                 = azurerm_resource_group.kestrel.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
 resource "azurerm_app_service_plan" "kestrel" {
     name                = "${var.environment}-hca-kestrel-appserviceplan"
     location            = azurerm_resource_group.kestrel.location
@@ -38,6 +46,14 @@ resource "azurerm_app_service" "kestrel-ui" {
     site_config {
          dotnet_framework_version = "v4.0"    
     }
+}
+
+resource "azurerm_function_app" "kestrel" {
+  name                      = "test-azure-functions"
+  location                  = azurerm_resource_group.kestrel.location
+  resource_group_name       = azurerm_resource_group.kestrel.name
+  app_service_plan_id       = azurerm_app_service_plan.kestrel.id
+  storage_connection_string = azurerm_storage_account.kestrel.primary_connection_string
 }
 
 resource "azurerm_sql_server" "kestrel" {
