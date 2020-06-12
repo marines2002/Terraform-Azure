@@ -49,7 +49,7 @@ resource "azurerm_app_service" "kestrel-ui" {
 }
 
 resource "azurerm_function_app" "kestrel" {
-  name                      = "test-azure-functions"
+  name                      = "${var.environment}-hca-kestrel-function-app"
   location                  = azurerm_resource_group.kestrel.location
   resource_group_name       = azurerm_resource_group.kestrel.name
   app_service_plan_id       = azurerm_app_service_plan.kestrel.id
