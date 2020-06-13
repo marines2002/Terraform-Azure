@@ -45,6 +45,7 @@ resource "azurerm_app_service" "kestrel-ui" {
 
     site_config {
          dotnet_framework_version = "v4.0"    
+         default_documents        = ["index.html"]
     }
 }
 
